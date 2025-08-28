@@ -15,7 +15,15 @@ const Hero = () => (
       }
       description={
         <>
-          Aspiring robotics engineer with over 5 years of hands-on experience in the field. My background includes extensive work on autonomous navigation systems in industrial environments and cutting-edge research on reinforcement learning for humanoid robots at <span style={{ color: '#BF5700' }}>The University of Texas at Austin</span>. I am passionate about the development of a seamless interface for human-robot interaction.
+          Aspiring robotics engineer with over 6 years of hands-on experience in
+          the field. My background includes extensive work on autonomous
+          navigation systems in industrial environments and cutting-edge
+          research on reinforcement learning for humanoid robots at{' '}
+          <span style={{ color: '#BF5700' }}>
+            The University of Texas at Austin
+          </span>
+          . I am passionate about the development of a seamless interface for
+          human-robot interaction.
         </>
       }
       avatar={
@@ -28,7 +36,11 @@ const Hero = () => (
       }
       socialButtons={
         <>
-          <a href="https://www.linkedin.com/in/imsamik/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/imsamik/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <HeroSocial
               src="/assets/images/linkedin-icon.png"
               alt="LinkedIn icon"

@@ -21,7 +21,7 @@ One of my primary contributions to this project was the design of a specialized 
 
 ---
 
-### Final CAD Design with Custom Mounts
+### Original CAD Design with Custom Mounts
 
 - **Design Consideration:** The tool needed to ensure sufficient "give" to prevent objects from tipping over during taps while still allowing firm enough contact for effective sound capture. This required a balance of impact force and material flexibility. The design also considered the physics of impulse and momentum transfer, ensuring that the tap delivered just enough force without creating excessive vibrations that could skew the audio recording. Using principles from **Newton’s Second Law** (\( F = ma \)), the design optimized force application to ensure controlled taps.
 
@@ -61,14 +61,31 @@ In addition to audio sampling, the project aimed to predict an object’s sound 
   
 - **Computer Science Techniques:** Using machine learning techniques, the model was trained to simulate the physical interaction between the object tapper and the materials, using visual cues like texture, shape, and material thickness to predict the object's acoustic response. By combining physics-based models with visual data, we aimed to predict sound signatures without needing physical contact in all cases.
 
-## Challenges and Solutions
+---
 
-- **Material Durability:** Earlier designs, using elastics and rubber bands, lacked longevity and wore out quickly. Switching to flexible PLA ensured both durability and the right amount of flexibility for repeated taps.
-  
-- **Audio Consistency:** Tapping with too much or too little force could result in inconsistent sound signatures. By refining the tapper design and calibrating the tapping force, we ensured that audio samples were consistent across different trials, improving the accuracy of material classification.
-  
-- **Sound Prediction:** Predicting an object’s sound signature based solely on its visual appearance required sophisticated models and the integration of both physics-based simulations and machine learning. While the model's accuracy improved over time, balancing computational complexity with real-time performance remained a challenge.
+### Final CAD Design with Custom Mounts
+- **Overview:** The Franka-mounted Spring-Loaded Object Tapper is designed to deliver gentle, repeatable taps that excite material resonances for audio classification while protecting the object, microphone, and camera. The end-effector converts a small gripper squeeze into a controlled out-of-plane tap using a compliant TPU spring element and a replaceable PLA striker tab, with the camera offset to maintain line-of-sight and avoid collisions.
 
-## Conclusion
+  TPU was selected for the spring due to its inherent damping (ζ≈0.1–0.2), fatigue resistance, and safe compliance, allowing precise tuning of the spring rate through geometry. PLA is used solely for the striker to provide a crisp, consistent impulse while maintaining repeatable contact geometry.
 
-**Interactive Audio** represents a significant leap in human-robot interaction, allowing robotic systems to perceive and classify objects based not only on their visual features but also on their acoustic properties. The design and development of the object tapper tool, along with advanced audio analysis and material prediction models, provide a more comprehensive understanding of object identification, opening new possibilities for robotic manipulation and material classification tasks.
+![Final CAD design](/assets/images/expandedviewrobottranslate.png "3rd revised CAD final design with custom mounts")  
+*Figure 6a: Expanded view: Final tapper design*
+
+![Final CAD design](/assets/images/translaterobot.png "3rd revised CAD final design with custom mounts")  
+*Figure 6b: Final tapper design*
+
+- **Dynamics of Tapper and Design:**
+  With an effective end-effector mass of ~0.05 kg and an approach velocity of 0.20 m/s, the resulting kinetic energy (~0.001 J) and a peak force target of 2–5 N guided a spring rate of ~2,500 N/m. A cantilevered TPU beam (15 mm length, 10 mm width, 5 mm thickness) achieves this target, with 1–2 mm preload improving repeatability.
+
+  The natural frequency of the system is ~36 Hz, and TPU damping suppresses multi-cycle ringing, capturing most of the impulse within the first 10–15 ms. This ensures a clean and measurable initial tap for audio classification without introducing spurious vibrations.
+
+  The PLA striker, with a 1.5–2.0 mm nose radius, concentrates pressure to excite higher frequencies while keeping stresses below PLA’s yield limit. The striker is field-replaceable to maintain impulse consistency over time.
+
+- **Controls, Calibration, and Validation**
+
+  The system operates with a 0.20 m/s approach, triggering a micro-squeeze to compress the spring 1–2 mm for a clean single impulse. Bench tests confirm spring compliance within ±0.3 kN/m. Impulse repeatability across multiple materials shows peak amplitude COV < 8% and spectral centroid shift < 5%. TPU springs survive over 10,000 cycles without significant drift, outperforming PLA alternatives.
+
+  In summary, the design achieves controlled, safe, and repeatable taps with low ring-down, combining first-principles spring tuning, compliant and damped materials, and precise CAD and FEA validation to ensure reliable performance for audio-based material classification.
+
+![Final CAD design](/assets/images/translatorinuse.jpg "3rd revised CAD final design with custom mounts")  
+*Figure 7: Robot Arm tapper during sampling*
