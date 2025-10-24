@@ -13,7 +13,7 @@ const projectData = [
       'Interactive Audio is a project that explores the integration of audio and interactive elements to create immersive experiences.',
     link: '/projects/interactive-audio/',
     img: {
-      src: '/assets/images/robot_audio.png',
+      src: '/assets/images/translaterobot.png',
       alt: 'Interactive Audio Project',
     },
     tags: [
@@ -29,7 +29,7 @@ const projectData = [
       'My design and integration of a custom gripper for the robot Sawyer Arm to manipulate delicate household objects.',
     link: '/projects/sawyer/',
     img: {
-      src: '/assets/images/stackrobot.webp',
+      src: '/assets/images/Bariflex.jpg',
       alt: 'Sawyer Custom Gripper',
     },
     tags: [
